@@ -31,7 +31,7 @@ static int leveldb_extension_clear(PyObject* m)
 
 static struct PyModuleDef leveldb_extension_def = {
 	PyModuleDef_HEAD_INIT,
-	"leveldb",
+	"hyperleveldb",
 	NULL,
 	sizeof(struct leveldb_extension_state),
 	leveldb_extension_methods,
@@ -43,27 +43,27 @@ static struct PyModuleDef leveldb_extension_def = {
 
 #define INITERROR return NULL
 
-extern "C" PyObject* PyInit_leveldb(void)
+extern "C" PyObject* PyInit_hyperleveldb(void)
 
 #else
 
 #define INITERROR return
 
-extern "C" void initleveldb(void)
+extern "C" void inithyperleveldb(void)
 
 #endif
 {
 #if PY_MAJOR_VERSION >= 3
 	PyObject* leveldb_module = PyModule_Create(&leveldb_extension_def);
 #else
-	PyObject* leveldb_module = Py_InitModule3((char*)"leveldb", leveldb_extension_methods, 0);
+	PyObject* leveldb_module = Py_InitModule3((char*)"hyperleveldb", leveldb_extension_methods, 0);
 #endif
 
 	if (leveldb_module == 0)
 		INITERROR;
 
 	// add custom exception
-	leveldb_exception = PyErr_NewException((char*)"leveldb.LevelDBError", 0, 0);
+	leveldb_exception = PyErr_NewException((char*)"hyperleveldb.LevelDBError", 0, 0);
 
 	if (leveldb_exception == 0) {
 		Py_DECREF(leveldb_module);

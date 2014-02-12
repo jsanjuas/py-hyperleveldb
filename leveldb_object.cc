@@ -3,7 +3,7 @@
 
 #include "leveldb_ext.h"
 
-#include <leveldb/comparator.h>
+#include <hyperleveldb/comparator.h>
 
 static PyObject* PyLevelDBIter_New(PyObject* ref, PyLevelDB* db, leveldb::Iterator* iterator, std::string* bound, int include_value, int is_reverse);
 static PyObject* PyLevelDBSnapshot_New(PyLevelDB* db, const leveldb::Snapshot* snapshot);
@@ -14,7 +14,7 @@ static void PyLevelDB_set_error(leveldb::Status& status)
 }
 
 const char pyleveldb_destroy_db_doc[] =
-"leveldb.DestroyDB(db_dir)\n\nAttempts to recover as much data as possible from a corrupt database."
+"hyperleveldb.DestroyDB(db_dir)\n\nAttempts to recover as much data as possible from a corrupt database."
 ;
 PyObject* pyleveldb_destroy_db(PyObject* self, PyObject* args)
 {
