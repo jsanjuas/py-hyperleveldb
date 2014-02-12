@@ -1,4 +1,4 @@
-py-hyperleveldb: Python bindings for HyperLevelDB (http://code.google.com/p/leveldb/)
+py-hyperleveldb: Python bindings for HyperLevelDB (https://github.com/rescrv/HyperLevelDB)
 author: Josep Sanjuas (jsanjuas@gmail.com)
 
 Made with minor changes to py-leveldb (http://code.google.com/p/leveldb/)
