@@ -8,7 +8,7 @@ import sys, string, unittest, itertools
 class TestLevelDB(unittest.TestCase):
 	def setUp(self):
 		# import local leveldb
-		import leveldb as _leveldb
+		import hyperleveldb as _leveldb
 		self.leveldb = _leveldb
 		dir(self.leveldb)
 
