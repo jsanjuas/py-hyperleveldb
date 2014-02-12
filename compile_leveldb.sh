@@ -12,8 +12,11 @@ set -e;
 )
 
 (
-	git clone https://code.google.com/p/leveldb/ || (cd leveldb; git pull);
-	cd leveldb;
-	make clean;
-	make libleveldb.a LDFLAGS='-L../snappy-read-only/.libs/ -Bstatic -lsnappy' OPT='-fPIC -O2 -DNDEBUG -DSNAPPY -I../snappy-read-only' SNAPPY_CFLAGS=''
+	git clone https://github.com/rescrv/HyperLevelDB.git || (
+		cd HyperLevelDB; git checkout master; git pull
+	);
+	cd HyperLevelDB;
+	git checkout tags/releases/1.0.1;
+	autoreconf -i; ./configure; make
+	make .libs/libhyperleveldb.a LDFLAGS='-L../snappy-read-only/.libs/ -Bstatic -lsnappy' OPT='-fPIC -O2 -DNDEBUG -DSNAPPY -I../snappy-read-only' SNAPPY_CFLAGS=''
 )
