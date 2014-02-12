@@ -10,15 +10,15 @@ try:
 except ImportError:
 	from distutils.core import setup, Extension
 
-extra_compile_args = ['-I./leveldb/include', '-fPIC', '-Wall', '-g2', '-D_GNU_SOURCE', '-O2', '-DNDEBUG']
-extra_link_args = ['-L./leveldb', '-Bstatic', '-lleveldb', '-L./snappy-read-only/.libs/', '-Bstatic', '-lsnappy']
+extra_compile_args = ['-I./HyperLevelDB', '-fPIC', '-Wall', '-g2', '-D_GNU_SOURCE', '-O2', '-DNDEBUG']
+extra_link_args = ['-L./HyperLevelDB/.libs', '-Bstatic', '-lhyperleveldb', '-L./snappy-read-only/.libs/', '-Bstatic', '-lsnappy']
 
 setup(
-	name = 'leveldb',
+	name = 'hyperleveldb',
 	version = '0.1',
-	maintainer = 'Arni Mar Jonsson',
-	maintainer_email = 'arnimarj@gmail.com',
-	url = 'http://code.google.com/p/py-leveldb/',
+	maintainer = 'Josep Sanjuas',
+	maintainer_email = 'jsanjuas@gmail.com',
+	#url = 'http://code.google.com/p/py-leveldb/',
 
 	classifiers = [
 		'Development Status :: 4 - Beta',
@@ -40,13 +40,13 @@ setup(
 		'Topic :: Software Development :: Libraries'
 	],
 
-	description = 'Python bindings for leveldb database library',
+	description = 'Python bindings for hyperleveldb database library',
 
-	packages = ['leveldb'],
-	package_dir = {'leveldb': ''},
+	packages = ['hyperleveldb'],
+	package_dir = {'hyperleveldb': ''},
 
 	ext_modules = [
-		Extension('leveldb',
+		Extension('hyperleveldb',
 			sources = [
 				# python stuff
 				'leveldb_ext.cc',
